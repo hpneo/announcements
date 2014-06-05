@@ -16,6 +16,8 @@ $(document).on('click', '.edit_announcement', function(e) {
 $(document).on('click', '.delete_announcement', function(e) {
   e.preventDefault();
 
+  var id = $(this).parents('div.announcement').data('id');
+
   if (confirm('¿Está seguro que desea eliminar la noticia?')) {
     $.ajax({
       url: '/announcements/' + id,
