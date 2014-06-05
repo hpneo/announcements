@@ -1,1 +1,3 @@
-<h2>AnnouncementsController#update</h2>
+var $announcement = $('#announcements').find('div.announcement#announcement_<%= @announcement.id %>');
+
+$announcement.replaceWith("<%= escape_javascript(render(partial: 'announcements/show', locals: { announcement: @announcement })) %>");

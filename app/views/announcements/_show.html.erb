@@ -1,7 +1,16 @@
-<div class="announcement">
+<div class="announcement" data-id="<%= announcement.id %>" id="announcement_<%= announcement.id %>">
   <div class="announcement_detail">
-    <h4><%= announcement.title %></h4>
-    <%= raw announcement.content %>
+    <div class="announcement_show">
+      <h4>
+        <%= announcement.title %>
+        <a href="#" class="edit_announcement"><%= image_tag('edit.png', plugin: 'announcements') %></a>
+        <a href="#" class="delete_announcement"><%= image_tag('delete.png', plugin: 'announcements') %></a>
+      </h4>
+      <%= raw announcement.content %>
+    </div>
+    <div class="announcement_edit" style="display: none">
+      <%= render partial: 'announcements/edit', locals: { announcement: announcement } %>
+    </div>
   </div>
   <div class="announcement_info">
     <p>

@@ -38,6 +38,18 @@ div.announcement .announcement_detail {
   border-right: solid 1px #bbb;
 }
 
+div.announcement .announcement_detail .edit_announcement,
+div.announcement .announcement_detail .delete_announcement {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.announcement .announcement_detail .edit_announcement img,
+div.announcement .announcement_detail .delete_announcement img {
+  width: 12px;
+  height: 12px;
+}
+
 div.announcement .announcement_info {
   width: 300px;
 }

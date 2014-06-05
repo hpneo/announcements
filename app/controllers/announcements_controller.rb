@@ -5,7 +5,7 @@ class AnnouncementsController < ApplicationController
   before_filter :check_permissions
 
   def index
-    @announcements = Announcement.where(semester: @current_semester)
+    @announcements = Announcement.where(semester: @current_semester).order('created_at DESC')
   end
 
   def create
@@ -21,9 +21,21 @@ class AnnouncementsController < ApplicationController
   end
 
   def update
+    @announcement = Announcement.find(params[:id])
+    @announcement.title = params[:announcement][:title]
+    @announcement.content = params[:announcement][:content]
+
+    if @announcement.save
+      render :update
+    end
   end
 
   def destroy
+    @announcement = Announcement.find(params[:id])
+
+    if @announcement.destroy
+      render :destroy
+    end
   end
 
   private

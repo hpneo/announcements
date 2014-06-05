@@ -1,0 +1,10 @@
+<%= labelled_form_for(announcement, remote: true, html: { class: "announcement", id: 'edit_announcement_form' }) do |f| %>
+  <p>
+    <%= f.text_field :title, label: 'Título' %>
+  </p>
+  <p>
+    <%= f.text_area :content, label: 'Contenido', rows: 5, class: 'ckeditor' %>
+  </p>
+  <%= submit_tag 'Update' %>
+  <a href="#" class="cancel_edit_announcement">Cancelar</a>
+<% end %>
