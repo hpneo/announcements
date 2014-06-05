@@ -1,0 +1,16 @@
+<div class="announcement">
+  <div class="announcement_detail">
+    <h4><%= announcement.title %></h4>
+    <%= raw announcement.content %>
+  </div>
+  <div class="announcement_info">
+    <p>
+      <strong>Publicado por:</strong>
+      <span><%= announcement.user.to_s %></span>
+    </p>
+    <p>
+      <strong>Fecha:</strong>
+      <span><%= announcement.created_at.strftime('%d/%m/%Y') %></span>
+    </p>
+  </div>
+</div>

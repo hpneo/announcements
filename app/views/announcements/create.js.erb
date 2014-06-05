@@ -1,0 +1,6 @@
+$('#announcements').append("<%= escape_javascript(render(partial: 'announcements/show', locals: { announcement: @announcement })) %>");
+
+var form = $('#new_announcement_form');
+form.find('#announcement_title').val('');
+form.find('#announcement_content').val('');
+CKEDITOR.instances.announcement_content.setData('');

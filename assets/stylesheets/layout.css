@@ -1,0 +1,43 @@
+.text-right {
+  text-align: right;
+}
+
+form.announcement p > * {
+  display: block;
+}
+
+form.announcement p > label {
+  font-weight: bold;
+}
+
+form.announcement .ckeditor {
+  width: 700px;
+}
+
+form.announcement {
+  display: block;
+}
+
+form.announcement.hidden {
+  display: none;
+}
+
+div.announcement {
+  width: 100%;
+  overflow: hidden;
+}
+
+div.announcement .announcement_detail,
+div.announcement .announcement_info {
+  float: left;
+  padding: 20px;
+}
+
+div.announcement .announcement_detail {
+  width: 700px;
+  border-right: solid 1px #bbb;
+}
+
+div.announcement .announcement_info {
+  width: 300px;
+}

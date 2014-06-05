@@ -1,0 +1,26 @@
+<nav class="text-right">
+  <%= label_tag('semester', 'Ciclo') %>
+  <%= select_tag('semester', options_for_select(Announcement.semesters, @current_semester)) %>
+  <a href="#" id="new_announcement">New announcement</a>
+</nav>
+
+<%= labelled_form_for(Announcement.new, remote: true, html: { class: "announcement #{(Announcement.count == 0 ? '' : 'hidden')}", id: 'new_announcement_form' }) do |f| %>
+  <p>
+    <%= f.text_field :title, label: 'Título' %>
+  </p>
+  <p>
+    <%= f.text_area :content, label: 'Contenido', rows: 5, class: 'ckeditor' %>
+  </p>
+  <%= submit_tag 'Create' %>
+<% end %>
+
+<div id="announcements">
+  <%= render partial: 'announcements/show', collection: @announcements, as: :announcement %>
+</div>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'layout', :plugin => 'announcements' %>
+
+  <%= javascript_include_tag 'ckeditor/ckeditor', :plugin => 'announcements' %>
+  <%= javascript_include_tag 'layout', :plugin => 'announcements' %>
+<% end %>
