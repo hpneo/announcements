@@ -3,6 +3,7 @@ class AnnouncementsController < ApplicationController
 
   before_filter :set_current_semester
   before_filter :check_permissions
+  before_filter :check_ownership, only: [ :destroy ]
 
   def index
     @announcements = Announcement.where(semester: @current_semester).order('created_at DESC')
@@ -31,7 +32,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def destroy
-    @announcement = Announcement.find(params[:id])
+    @announcement ||= Announcement.find(params[:id])
 
     if @announcement.destroy
       render :destroy
@@ -46,5 +47,11 @@ class AnnouncementsController < ApplicationController
   
   def check_permissions
     (render_403; return false) unless User.current.allowed_to?(:view_announcements, nil, global: true)
+  end
+
+  def check_ownership
+    @announcement = Announcement.find(params[:id])
+
+    (render_403; return false) unless @announcement.user_id == User.current.id
   end
 end

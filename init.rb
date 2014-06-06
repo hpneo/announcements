@@ -2,7 +2,7 @@ Redmine::Plugin.register :announcements do
   name 'Announcements plugin'
   author 'Gustavo Leon'
   description 'Announcements dashboard for Redmine'
-  version '0.1.0'
+  version '0.1.1'
   url 'http://github.com/hpneo/announcements'
   author_url 'http://hpneo.github.io'
 

@@ -21,8 +21,11 @@ $(document).on('click', '.delete_announcement', function(e) {
   if (confirm('¿Está seguro que desea eliminar la noticia?')) {
     $.ajax({
       url: '/announcements/' + id,
-      type: 'DELETE',
-      dataType: 'script'
+      type: 'POST',
+      dataType: 'script',
+      data: {
+        '_method' : 'delete'
+      }
     });
   }
 });
