@@ -8,7 +8,9 @@
           <a href="#" class="delete_announcement"><%= image_tag('delete.png', plugin: 'announcements') %></a>
         <% end %>
       </h4>
-      <%= raw announcement.content %>
+      <div class="announcement_content">
+        <%= raw announcement.content.html_safe %>
+      </div>
     </div>
     <div class="announcement_edit" style="display: none">
       <% if announcement.user_id == User.current.id %>
