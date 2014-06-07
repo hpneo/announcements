@@ -20,7 +20,7 @@ $(document).on('click', '.delete_announcement', function(e) {
 
   if (confirm('¿Está seguro que desea eliminar la noticia?')) {
     $.ajax({
-      url: '/announcements/' + id,
+      url: 'announcements/' + id,
       type: 'POST',
       dataType: 'script',
       data: {
